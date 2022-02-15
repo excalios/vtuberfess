@@ -1,6 +1,9 @@
 package message
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestMessages(t *testing.T) {
 	t.Run("Extracting Messages", func(t *testing.T) {
@@ -18,9 +21,10 @@ func TestMessages(t *testing.T) {
 		}
 
 		got := extractMessage(message)
+		want := []string{content}
 
-		if got != content {
-			t.Errorf("got %q want %q", got, content)
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
 		}
 	})
 }

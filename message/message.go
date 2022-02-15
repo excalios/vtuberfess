@@ -1,7 +1,7 @@
 package message
 
-func extractMessage(msg message) string {
-	return msg.messageCreate.messageData.text
+func extractMessage(msg message) []string {
+	return []string{msg.messageCreate.messageData.text}
 }
 
 type message struct {
